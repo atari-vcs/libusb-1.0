@@ -1,1 +1,2 @@
-gnu-hurd-stub.diff
+01-Add-Null-POSIX-backend.patch
+02-core-include-sys-time.h-on-any-GNU-libc-OS.patch

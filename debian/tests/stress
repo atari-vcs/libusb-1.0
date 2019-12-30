@@ -10,7 +10,7 @@ LDFLAGS=$(pkg-config --libs libusb-1.0)
 
 cc $CFLAGS -o $WORKDIR/stress.o -c tests/stress.c
 cc $CFLAGS -o $WORKDIR/testlib.o -c tests/testlib.c
-cc $LDFLAGS -o $WORKDIR/stress $WORKDIR/stress.o $WORKDIR/testlib.o
+cc -o $WORKDIR/stress $WORKDIR/stress.o $WORKDIR/testlib.o $LDFLAGS
 
 echo "build: OK"
 [ -x $WORKDIR/stress ]

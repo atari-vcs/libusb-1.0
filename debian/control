@@ -2,9 +2,10 @@ Source: libusb-1.0
 Section: libs
 Priority: optional
 Maintainer: Aurelien Jarno <aurel32@debian.org>
-Build-Depends: debhelper (>= 10), libudev-dev [linux-any], pkg-config
+Build-Depends: debhelper (>= 12.4), libudev-dev [linux-any], pkg-config
 Build-Depends-Indep: doxygen
-Standards-Version: 4.1.4
+Standards-Version: 4.4.1
+Rules-Requires-Root: no
 Homepage: http://www.libusb.info
 XS-Testsuite: autopkgtest
 
