@@ -28,7 +28,7 @@ override_dh_auto_install-arch:
 	mkdir -p $(CURDIR)/debian/tmp-deb/lib/$(DEB_HOST_MULTIARCH)/
 	mv $(CURDIR)/debian/tmp-deb/usr/lib/$(DEB_HOST_MULTIARCH)/libusb-1.0.so.* \
 	   $(CURDIR)/debian/tmp-deb/lib/$(DEB_HOST_MULTIARCH)/
-	ln -sf /lib/$(DEB_HOST_MULTIARCH)/libusb-1.0.so.0.1.0 \
+	ln -sf /lib/$(DEB_HOST_MULTIARCH)/libusb-1.0.so.0.2.0 \
 	       $(CURDIR)/debian/tmp-deb/usr/lib/$(DEB_HOST_MULTIARCH)/libusb-1.0.so
 	dh_auto_install --builddirectory build-udeb --destdir=$(CURDIR)/debian/tmp-udeb
 
@@ -40,15 +40,11 @@ override_dh_strip-arch:
 	dh_strip -plibusb-1.0-0 --dbgsym-migration='libusb-1.0-0-dbg (<< 2:1.0.21~)'
 	dh_strip -a --remaining-packages
 
-override_dh_makeshlibs-arch:
-	dh_makeshlibs -plibusb-1.0-0 --add-udeb="libusb-1.0-0-udeb"
-
 override_dh_auto_test-arch:
-ifeq (linux,$(DEB_HOST_ARCH_OS))
 ifneq (nocheck,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
 	$(CURDIR)/build-deb/tests/stress
 endif
-endif
+
 
 #
 # Architecture independent targets
@@ -58,4 +54,3 @@ override_dh_auto_configure-indep:
 
 override_dh_auto_build-indep:
 	$(MAKE) -C $(CURDIR)/build-doc/doc docs
-

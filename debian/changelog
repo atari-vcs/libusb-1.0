@@ -1,3 +1,30 @@
+libusb-1.0 (2:1.0.23-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.4.1 (no changes).
+  * Drop patches/gnu-hurd-stub.diff and replace it by two upstream patch
+    adding the Null POSIX backend (closes: #947619).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 30 Dec 2019 22:55:13 +0100
+
+libusb-1.0 (2:1.0.23-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/tests/stress: move $LDFLAGS at the end of the command.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 30 Aug 2019 22:18:57 +0200
+
+libusb-1.0 (2:1.0.23~rc3-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+    - Update symbols file.
+  * Build-depends on debhelper (>= 12.4) to get automatic udeb support and
+    drop the override_dh_makeshlibs-arch stanza from debian/rules.
+  * Set Rules-Requires-Root to no.
+  * Push debhelper level to 12.
+  * Bump Standards-Version to 4.4.0 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 16 Aug 2019 13:47:13 +0200
+
 libusb-1.0 (2:1.0.22-2) unstable; urgency=medium
 
   * debian/tests/control: add a depends on build-essential.
